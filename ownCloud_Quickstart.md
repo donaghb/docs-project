@@ -1,8 +1,4 @@
 # Owncloud Server Quickstart Guide 
-### Table of Contents
-
-The table of contents goes in here. 
-
 
 ## Introduction 
 
