@@ -5,7 +5,25 @@ title: Quickstart Guide
 # Owncloud Server Quickstart Guide 
 ### Table of Contents
 
-The table of contents goes in here. 
+[Introduction](https://github.com/donaghb/docs-project/blob/master/docs/index.md#introduction)
+
+[Install the Server](https://github.com/donaghb/docs-project/blob/master/docs/index.md#install-the-server)
+
+&nbsp;&nbsp;&nbsp;[Install VirtualBox](https://github.com/donaghb/docs-project/blob/master/docs/index.md#install-virtualbox)
+ 
+&nbsp;&nbsp;&nbsp;[Download ownCloud Image](https://github.com/donaghb/docs-project/blob/master/docs/index.md#download-owncloud-image)
+ 
+&nbsp;&nbsp;&nbsp;[Import the VirtualBox OVA](https://github.com/donaghb/docs-project/blob/master/docs/index.md#import-the-virtualbox-ova)
+ 
+&nbsp;&nbsp;&nbsp;[Start the Server](https://github.com/donaghb/docs-project/blob/master/docs/index.md#start-the-server)
+ 
+&nbsp;&nbsp;&nbsp;[Register ownCloud](https://github.com/donaghb/docs-project/blob/master/docs/index.md#register-owncloud)
+ 
+&nbsp;&nbsp;&nbsp;[Add Users to the ownCloud Server](https://github.com/donaghb/docs-project/blob/master/docs/index.md#add-users-to-the-owncloud-server)
+ 
+[Install the Client](https://github.com/donaghb/docs-project/blob/master/docs/index.md#install-the-client)
+
+&nbsp;&nbsp;&nbsp;[User Access to ownCloud with Client](https://github.com/donaghb/docs-project/blob/master/docs/index.md#user-access-to-owncloud-with-client)
 
 
 ## Introduction 
