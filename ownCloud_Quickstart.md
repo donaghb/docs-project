@@ -1,3 +1,7 @@
+---
+layout: default
+title: Quickstart Guide
+---
 # Owncloud Server Quickstart Guide 
 
 ## Introduction 
