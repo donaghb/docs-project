@@ -32,9 +32,9 @@ title: Quickstart Guide
 
 There are a number of ways to setup and install an ownCloud server. You can download and install ownCloud with a tarball, for a customized install, on your own Linux server, using Docker or virtual machine images, or by availing of the hosted services that ownCloud are partnered with.  
 
-Please refer to https://owncloud.org/download for links to the download files for each of these options. 
+Please refer to [owncloud.org/download](https://owncloud.org/download) for links to the download files for each of these options. 
 
-This Quickstart guide will go through the short installation steps required to install the server using the virtual image for Virtual Box on a personal computer.  This will include steps showing how an administrator adds new users followed by a demonstration of how a new user can add and sync files on the server with their local directories.  
+This Quickstart guide will go through the short installation steps required to install the server using the virtual image for Virtual Box on a personal computer.  This will include steps showing how you, as an administrator, can add new users. followed by a demonstration of how a new user can add and sync files on their local directories with the server.  
 
 As with any cloud service, the solution consists of two main components, the server and client: 
 
@@ -50,7 +50,7 @@ The ownCloud desktop client enables you, as an ownCloud user, to keep your data 
 
 For more information on the completing different manual or custom installations, prerequisites  or additional administration tasks for ownCloud, see: 
 
-- [ ] [ownCloud Documentation](https://doc.owncloud.org/server/10.1/admin_manual/installation/) 
+* [ownCloud Documentation](https://doc.owncloud.org/server/10.1/admin_manual/installation/) 
 
 ## Install the Server
 
@@ -61,14 +61,14 @@ The following section goes through the steps required to set up the ownCloud ser
 If you do not have Virtual Box installed, do so now.
 
 1. Using your preferred browser, go to the [virtualbox](https://www.virtualbox.org/wiki/Downloads)  download page.   
-2. Under the heading **VirtualBox <version> platform packages** choose the host for your operating system. In this example it was **Windows hosts**. 
+2. Under the heading **VirtualBox** (version) **platform packages** choose the host for your operating system.  
 3. Complete the installation wizard, accepting all defaults.
 
 ### Download ownCloud Image
 
  As we are installing the server using a virtual image we must first download the Virtual Box OVA. 
 
-1. Go to  https://owncloud.org/download/ and navigate to the section **Appliance**. 
+1. Go to [owncloud.org/download](https://owncloud.org/download/) and navigate to the section **Appliance**. 
 
 2. Click **Download VirtualBox** image to begin the download, noting where on your harddrive it will be stored. 
 
@@ -92,9 +92,9 @@ Next, you import the  VirtualBox `.ova` image file for the ownCloud server that 
 
 ### Start the Server
 
-Once imported you can start the server. 
+Once imported, you can start the server. 
 
-1. Ensure that the machine you imported is selected and click the Start button on the top-right of the VirtualBox Manager. 
+1. Ensure that the machine you imported is selected and click the **Start** button on the top-right of the VirtualBox Manager. 
 
    This opens the ownCloud Appliance configuration setup.
 
@@ -122,11 +122,11 @@ Once imported you can start the server.
 
 8. You can choose one of the following opens to setup the domain:
 
-   - [ ] **Manage users and permissions directly on this system**
+   - **Manage users and permissions directly on this system**
 
-   - [ ] **Join into an existing UCS domain**
+   -  **Join into an existing UCS domain**
 
-   - [ ] **Join into an existing Microsoft Active Directory domain**
+   -  **Join into an existing Microsoft Active Directory domain**
 
    In our example we just need to select **Manage users and permissions directly on this system** and click **Next**.
 
@@ -208,7 +208,7 @@ Once the ownCloud server is running, and you have added users to the Users for t
 
 1. Go to <https://owncloud.com/download/> and download the ownCloud Desktop Client for your operating system. 
 
-   In this example, we selected **ownCloud Windows Client (.msi, EN for GPO) <version>**. 
+   In this example, we selected **ownCloud Windows Client (.msi, EN for GPO) (version)**. 
 
 2. Run the client installer and accept all default options in the ownCloud Setup Wizard. 
 
