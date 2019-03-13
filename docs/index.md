@@ -2,7 +2,7 @@
 layout: default
 title: Quickstart Guide
 ---
-# Owncloud Server Quickstart Guide 
+# ownCloud Server Quickstart Guide 
 ### Table of Contents
 
 [Introduction](https://github.com/donaghb/docs-project/blob/master/docs/index.md#introduction)
