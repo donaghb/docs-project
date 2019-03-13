@@ -48,7 +48,7 @@ The ownCloud desktop client enables you, as an ownCloud user, to keep your data 
 
 #### Further Reading
 
-For more information on the completing different manual or custom installations, prerequisites  or additional administration tasks for ownCloud, see: 
+For more information on the completing of different manual or custom installations, prerequisites  or additional administration tasks for ownCloud, see: 
 
 * [ownCloud Documentation](https://doc.owncloud.org/server/10.1/admin_manual/installation/) 
 
