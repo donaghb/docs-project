@@ -8,32 +8,21 @@ public class Lion extends Animal {
     private static int noOfLions = 0;
     private int age;
     private String name;
-    private String gender;
+    private boolean mane = false;
 
     public Lion() {
         super();
         noOfLions++;
     }//default constructor
 
-    public Lion(String pFood, int pLifeExpectancy, int pAge, String pName, String pGender) {
+    public Lion(String pFood, int pLifeExpectancy, int pAge, String pName, boolean mane) {
         super(pLifeExpectancy, pFood);
         age = pAge;
         name = pName;
-        gender = pGender;
+        this.mane = mane;
         noOfLions++;
     }
 
-    protected String mane () {
-        String mane;
-        if (gender == "male") {
-            mane = "a mane";
-        }// if statement
-        else {
-            mane = "no mane";
-        }//else statement
-        return mane;
-
-    }
     protected int numberOfLions() {
         return noOfLions;
     }
@@ -42,7 +31,16 @@ public class Lion extends Animal {
         this.age = pAge;
     }
 
+    protected String getName(){
+        return name;
+    }
+
     public String toString() {
-        return name + ", the lion is " + age + " years old, eats " + getFood() + " and has " + mane();
+        if (mane) {
+            return getName() + super.toString() + " and has a mane";
+        } else {
+            return getName() + super.toString() + " and does not have a mane";
+        }
+
     }
 }//class

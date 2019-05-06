@@ -12,26 +12,16 @@ public abstract class Animal {
 
        }//default constructor
 
-    public Animal(int pLifeExpectancy, String pFood) {
-        lifeExpectancy = pLifeExpectancy;
+    public Animal(int lifeExpectancy, String pFood) {
+        this.lifeExpectancy = lifeExpectancy;
         food = pFood;
-    }
-
-    public Animal(String pFood) {
-        food = pFood;
-    }
-
-
-    public Animal(int pLifeExpectancy) {
-        lifeExpectancy = pLifeExpectancy;
     }
 
     protected String getFood() {
         return food;
     }
 
-
     public String toString() {
-        return "This " + getFood() + "eater has a life expectancy of " + lifeExpectancy + " years";
+        return " eats " + getFood() + ", has a life expectancy of " + lifeExpectancy + " years,";
     }
 }//class

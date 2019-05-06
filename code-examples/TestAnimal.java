@@ -6,8 +6,8 @@ package Lab2;
  */
 public class TestAnimal {
     public static void main(String[] args) {
-        Lion Lion1 = new Lion("antelope", 15, 6, "Leo", "male" );
-        Lion Lion2 = new Lion("gazelle", 15, 4, "Lynda", "female" );
+        Lion Lion1 = new Lion("antelope", 15, 6, "Leo", true );
+        Lion Lion2 = new Lion("gazelle", 17, 4, "Lynda", false );
 
         Lion1.setAge(3);
 
