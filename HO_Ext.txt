@@ -1,0 +1,125 @@
+package edge.capabilities.policycommon.validation.lob.HO_ext
+
+uses edge.capabilities.policycommon.validation.IEdgeValidationRulesLobPlugin
+uses edge.capabilities.policyjob.lob.homeowners.coverables.dto.ConstructionDTO
+uses edge.capabilities.policyjob.lob.homeowners.coverables.dto.YourHomeDTO
+uses edge.di.annotations.InjectableNode
+uses gw.lob.hop.HOPCoveragesValidation
+uses gw.lob.hop.HOPDwellingValidation
+uses gw.lob.hop.HOPLineValidation
+uses gw.policy.PolicyPeriodValidation
+uses gw.validation.PCValidationContext
+uses gw.validation.ValidationUtil
+
+class HOEdgeValidationRulesPlugin_ext implements IEdgeValidationRulesLobPlugin {
+
+  // HOP quote flow steps
+  public static enum FlowStepId {
+    /* flow step names requiring error handling
+    * use references from, common&LOB wizard config, such as
+    * common/config/RouteConfig.js
+    * and
+    * ho/config/RouteConfig.js
+    * */
+    hoPrequalQuestions,
+    hoYourHome,
+    // optional flow configuration steps
+    hoContactDetails,
+    hoConstruction,
+    hoRating,
+    hoAdditionalInfo,
+    hoPolicyInfo,
+    paymentDetails,
+    quoteDetails,
+    contactUs,
+    qnbconfirmation
+  }
+
+  /*
+  creates an entity-DTO mapping for HOP quote
+  for the student activity, this will require YourHomeDTO
+  additional DTOs such as ConstructionDTO could be considered here
+  */
+  public static  var ENTITY_TO_DTO_MAP: Map<Type, Type> = {
+      /*
+      Evaluating the Home step only,
+      could also consider additional validation for other flow steps and DTOs
+      such as ConstructionDTO
+      */
+      // entity.HOPDwellingCov ->ConstructionDTO,
+      entity.HOPDwelling ->YourHomeDTO
+  }
+
+  @InjectableNode
+  construct(){}
+
+  // validate a specific step in the flow using a validation *level*
+  override function validateStep(period : PolicyPeriod, flowStepId : String, validationLevel : ValidationLevel) {
+    var context = ValidationUtil.createContext(validationLevel)
+    validateStep(period, flowStepId, context)
+  }
+
+  // validate a specific step in the flow using a validation *context*
+  override function validateStep(period : PolicyPeriod, flowStepId : String, context : PCValidationContext) {
+    // retrieve the first dwelling for the policy period
+    var dwellingVal = new HOPDwellingValidation(context, period.HOPLine.HOPDwellings.first())
+    // check for HOP line
+    if(period.HOPLineExists){
+      // check current flow step
+      switch (flowStepId){
+        case FlowStepId.hoPrequalQuestions.Name:
+          // validate pre-qual questions
+          dwellingVal.validateQualificationQuestions()
+          break;
+        case FlowStepId.hoYourHome.Name:
+          /*
+          * HOPDwellingValidation validates a HOPDwelling entity.
+          * This includes validating the dwelling information that appears in
+          * the HOP quote flow
+          */
+          dwellingVal.validateImpl()
+          break;
+        // optional step for student activity
+        case FlowStepId.hoConstruction.Name:
+          dwellingVal.validateImpl()
+        // optional step for student activity
+        case FlowStepId.hoRating.Name:
+          dwellingVal.validateImpl()
+          break;
+        // optional step for student activity
+        case FlowStepId.hoPolicyInfo.Name:
+          dwellingVal.validateImpl()
+          break;
+        default:
+          throw new UnsupportedOperationException("HOValidationRulesPlugin#runValidations: Unable to run validations for flow step ID ${flowStepId}")
+      }
+    }
+  }
+
+  // validate HOP quote flow using a *validation level*
+  override function validate(period : PolicyPeriod, validationLevel : ValidationLevel) {
+    if(period.HOPLineExists){
+      // create validation context
+      var context = ValidationUtil.createContext(validationLevel)
+      validate(period, context)
+      var results = context.Result
+    }
+  }
+
+  // validate HOP quote flow using a validation *context*
+  override function validate(period : PolicyPeriod, context : PCValidationContext) {
+    if(period.HOPLineExists){
+      // uses HOPLIneValidation class to validate HOPLine entity instances
+      var hopLineValidator = new HOPLineValidation(context, period.HOPLine)
+      hopLineValidator.doValidate()
+    }
+  }
+
+  /*
+     * utility that returns a DTO from the DTO-Entity map using target entity
+     * identifies the DTO associated with an error
+     */
+  override function getDTOFromEntity(entity : KeyableBean) : Type {
+    return ENTITY_TO_DTO_MAP.get(typeof entity)
+  }
+}
